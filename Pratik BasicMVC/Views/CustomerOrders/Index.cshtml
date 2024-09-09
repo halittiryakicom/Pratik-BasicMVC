@@ -1,0 +1,32 @@
+﻿<!--Burada modele gönderdiğim nesneyi aldım-->
+@model CustomerOrderViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--Burada tablo oluşturup bilgileri bu tablonun içerisine aktardım.-->
+<table>
+    <tr>
+        <td colspan="4">Müşteri Id: @Model.Customer.id, Müşteri Adı: @Model.Customer.FirstName @Model.Customer.LastName, @Model.Customer.Email</td>
+    </tr>
+
+    <tr>
+        <td>Sipariş Id</td>
+        <td>Ürün Adı</td>
+        <td>Fiyat</td>
+        <td>Miktar</td>
+    </tr>
+
+    @foreach(var product in  @Model.Orders)
+    {
+        <tr>
+            <td>@product.id</td>
+            <td>@product.ProductName</td>
+            <td>@product.Price</td>
+            <td>@product.Quantity</td>
+        </tr>
+    }
+    
+</table>
+
